@@ -1,21 +1,23 @@
-{% load staticfiles %}
-<html>
-        <head>
-            <title>Frases | ERokerVC</title>
-            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-            <link rel="stylesheet" href="{% static "css/tema.css" %}">
-            <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
-        </head>
-        <body>
+{% extends "frases/base.html" %}
+
+{% block content %}
+
         {% for post in posts %}
-            <div>
-                <blockquote>
-		        <p>{{ post.texto|linebreaks }}</p>
-		              <cite>{{ post.personaje }}</cite>
-	           </blockquote>
-                <p>publicado el: {{ post.fecha_publicacion }} | por: {{ post.autor}}</p>
-            </div>
+        <div class="post-preview">
+            <a href="post.html">
+                <h2 class="post-title">
+
+                </h2>
+            </a>
+            <blockquote>
+            <p>{{ post.texto|linebreaks }}</p>
+                  <cite>{{ post.personaje }}</cite>
+              </blockquote>
+            <p class="post-meta"><i class="fa fa-user"></i> <a href="#">{{ post.autor}}</a> |
+             <i class="fa fa-clock-o"></i> {{ post.fecha_publicacion }}</p>
+            <p class="post-meta"><i class="fa fa-folder"></i> {{post.categoria}} </p>
+        </div>
+        <hr>
         {% endfor %}
-        </body>
-</html>
+        
+ {% endblock content %}

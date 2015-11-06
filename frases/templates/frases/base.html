@@ -14,9 +14,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Frases celebres, encontradas en películas, libros, etc...">
-    <!-- Custom CSS -->
+
     <meta name="author" content="Estuardo Vásquez">
-    <link href="css/clean-blog.min.css" rel="stylesheet">
+    <link href="{% static "css/css/bootstrap.min.css" %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static "css/css/clean-blog.min.css" %}" rel="stylesheet">
+
 
     <!-- Custom Fonts -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -62,11 +65,12 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+    <header class="intro-header" style="background-image: url('{% static 'css/img/home-bg.jpg' %}')" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
+
                         <h1>Frases | Estuardo Vásquez</h1>
                         <hr class="small">
                         <span class="subheading">Frases celebres de todo tipo.</span>
@@ -77,7 +81,71 @@
     </header>
 
     <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
 
         {% block content %}
         {% endblock %}
+        <!-- Pager -->
+        <ul class="pager">
+            <li class="next">
+                <a href="#">Older Posts &rarr;</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
+
+<hr>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <ul class="list-inline text-center">
+                <li>
+                    <a href="#">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; Estuardo Vásquez 2015</p>
+        </div>
+    </div>
+</div>
+</footer>
+
+<!-- jQuery -->
+<script src="{% static "css/js/jquery.js" %}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="{% static "css/js/bootstrap.min.js" %}"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="{% static "css/js/clean-blog.min.js" %}"></script>
+
+</body>
+
 </html>
