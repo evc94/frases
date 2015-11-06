@@ -1,7 +1,27 @@
 {% extends "frases/base.html" %}
-
+{% load staticfiles %}
 {% block content %}
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('{% static 'css/img/home-bg.jpg' %}')" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
 
+                    <h1>Frases | Estuardo Vásquez</h1>
+                    <hr class="small">
+                    <span class="subheading">Frases celebres de todo tipo.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         {% for post in posts %}
         <div class="post-preview">
             <a href="post.html">
@@ -14,10 +34,10 @@
                   <cite>{{ post.personaje }}</cite>
               </blockquote>
             <p class="post-meta"><i class="fa fa-user"></i> <a href="#">{{ post.autor}}</a> |
-             <i class="fa fa-clock-o"></i> {{ post.fecha_publicacion }}</p>
-            <p class="post-meta"><i class="fa fa-folder"></i> {{post.categoria}} </p>
+             <i class="fa fa-clock-o"></i> <a href="{% url "frases.views.post_detail" pk=post.pk %}">{{ post.fecha_publicacion }}</a> <br/>
+             <i class="fa fa-folder"></i> {{post.categoria}} </p>
         </div>
         <hr>
         {% endfor %}
-        
+
  {% endblock content %}

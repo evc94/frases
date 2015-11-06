@@ -1,0 +1,27 @@
+{% extends "frases/base.html" %}
+{% load staticfiles %}
+
+    {% block content %}
+
+
+        <!-- Page Header -->
+        <!-- Set your background image for this header on the line below. -->
+        <header class="intro-header" style="background-image: url('{% static 'css/img/post_principal.jpeg' %}')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="post-heading">
+                            <h1>{{ post.personaje }}</h1>
+                            <h2 class="subheading">{{ post.texto|linebreaks }}</h2>
+                            <span class="meta"><i class="fa fa-user"></i> <a href="#">{{ post.autor}}</a>
+                            {% if post.fecha_publicacion %}
+                            <i class="fa fa-clock-o"></i> {{ post.fecha_publicacion }}<br/>
+                            {% endif %}
+                            <i class="fa fa-folder"></i> {{post.categoria}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    {% endblock %}
