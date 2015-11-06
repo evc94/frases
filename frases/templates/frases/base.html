@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static "css/tema.css" %}">
     <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa:300' rel='stylesheet' type='text/css'>
 
     <!-- Custom meta -->
     <meta charset="utf-8">
@@ -42,20 +43,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Frases celebres</a>
+                <a class="navbar-brand" href="/"><i class="fa fa-angle-double-right"></i> ERokerVC</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Inicio</a>
+                        <a href="/"><i class="fa fa-home"></i> Inicio</a>
                     </li>
                     <li>
-                        <a href="/Yo">Acerca de</a>
+                        <a href="/Yo"><i class="fa fa-male"></i> Acerca de</a>
                     </li>
                     <li>
-                        <a href="/Agregar">Agregar</a>
+                        <a href="{% url "frases.views.post_new" %}"><i class="fa fa-plus-square"></i> Agregar</a>
                     </li>
                 </ul>
             </div>
@@ -68,16 +69,6 @@
 
         {% block content %}
         {% endblock %}
-        <!-- Pager -->
-        <ul class="pager">
-            <li class="next">
-                <a href="#">Older Posts &rarr;</a>
-            </li>
-        </ul>
-    </div>
-</div>
-</div>
-
 <hr>
 
 <!-- Footer -->
@@ -123,8 +114,7 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="{% static "css/js/bootstrap.min.js" %}"></script>
 
-<!-- Custom Theme JavaScript -->
-<script src="{% static "css/js/clean-blog.min.js" %}"></script>
+
 
 </body>
 
