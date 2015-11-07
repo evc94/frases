@@ -1,0 +1,46 @@
+{% extends "registration/base.html" %}
+{% load i18n staticfiles %}
+{% block content %}
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('{% static 'css/img/principal.jpg' %}')" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+
+                    <h1>Inicia Sesión</h1>
+                    <hr class="small">
+                    <span class="subheading">Al ser usuario podras publicar frases en este sitio.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+            <form method="post" action="." class="form-register" role="form">{% csrf_token %}
+                <h2 class="form-register-heading">{% trans "Sign up" %}</h2>
+                    {% if form.errors %}
+                        <div class="alert alert-danger">{% trans "Completa el formulario." %}</div>
+                    {% endif %}
+
+                    {% for field in form %}
+                        {{ field }}
+                        <br/>
+                    {% endfor %}
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">{% trans "Create an account" %}</button>
+                <br>{% trans "Do you have an account?" %} <a href="{% url 'login' %}">{% trans "Sign in here" %}</a>
+            </form>
+        </div>
+    </div>
+</div>
+        <script type="text/javascript" src="{% static 'registration/js/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'registration/js/bootstrap.min.js' %}"></script>
+
+{% endblock %}
