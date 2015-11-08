@@ -1,6 +1,8 @@
 {% extends "frases/base.html" %}
 {% load staticfiles %}
+{% block titulo%}Agregar Frase | ERokerVC{% endblock%}
 {% block content %}
+{% if user.is_authenticated %}
 <header class="intro-header" style="background-image: url('{% static 'css/img/agregar.jpeg' %}')">
 <div class="container">
     <div class="row">
@@ -8,7 +10,7 @@
             <div class="page-heading">
                 <h1>Agregar Frase</h1>
                 <hr class="small">
-                <span class="subheading">¡Sigamos agregando frases!</span>
+                <span class="subheading">¡Sigamos agregando frases! </span>
             </div>
         </div>
     </div>
@@ -27,4 +29,20 @@
             </div>
         </div>
     </div>
+{% else %}
+<meta http-equiv="Refresh" content="4;url=/">
+<header class="intro-header" style="background-image: url('{% static 'css/img/principal.jpg' %}')">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="page-heading">
+                <h1>No tienes permiso</h1>
+                <hr class="small">
+                <span class="subheading">¡No puedes crear frases, si no estás registrado!</span>
+            </div>
+        </div>
+    </div>
+</div>
+</header>
+{% endif %}
 {% endblock %}
