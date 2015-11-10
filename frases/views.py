@@ -36,3 +36,15 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'frases/post_edit.html', {'form': form})
+
+def post_delete(request, pk):
+    post = get_object_or_404(Frase, pk=pk)
+    if post.autor == request.user:
+        post.delete()
+        posts = Frase.objects.filter(fecha_publicacion__lte=timezone.now()).order_by('-fecha_publicacion')
+        return render(request, 'frases/post_list.html', {'posts': posts})
+    else:
+        posts = Frase.objects.filter(fecha_publicacion__lte=timezone.now()).order_by('-fecha_publicacion')
+        return render(request, 'frases/post_list.html', {'posts': posts})
+    posts = Frase.objects.filter(fecha_publicacion__lte=timezone.now()).order_by('-fecha_publicacion')
+    return render(request, 'frases/post_list.html', {'post': post})

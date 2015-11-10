@@ -15,9 +15,5 @@ class Frase(models.Model):
         self.fecha_publicacion = timezone.now()
         self.save()
 
-    def borrar(self):
-        self.fecha_publicacion = timezone.now()
-        self.save()
-
     def __str__(self):
         return self.texto

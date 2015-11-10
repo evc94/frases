@@ -30,7 +30,8 @@
                             {% ifequal post.autor|lower user.username|lower%}
                                 <h3>Opciones</h3>
                                 <a class="btn btn-default" href="{% url "post_edit" pk=post.pk %}"><i class="fa fa-pencil-square-o"></i> Editar</a>
-                                
+                                <a class="btn btn-default" href="{% url "post_delete" pk=post.pk %}"><i class="fa fa-pencil-square-o"></i> Borrar</a>
+
                             {% endifequal %}
                         {% endif  %}
                     </div>
