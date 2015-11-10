@@ -9,7 +9,7 @@ class Frase(models.Model):
     fecha_creacion = models.DateTimeField(
             default=timezone.now)
     fecha_publicacion = models.DateTimeField(
-            blank=True, null=True)
+            default=timezone.now)
 
     def publish(self):
         self.fecha_publicacion = timezone.now()
